@@ -11,7 +11,10 @@ const config: GatsbyConfig = {
   graphqlTypegen: false,
   plugins: [
     "gatsby-plugin-sass",
-    "gatsby-plugin-dts-css-modules"
+    "gatsby-plugin-dts-css-modules",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp"
   ]
 };
 

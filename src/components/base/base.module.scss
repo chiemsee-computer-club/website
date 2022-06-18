@@ -8,7 +8,7 @@
 }
 
 :root {
-  --background: #242429;
+  --background: #1f1f23;
   --text-color: #ffffff;
   --window-background: #2e2e31;
   --border-color: #03f9ed81;
@@ -24,6 +24,29 @@ body, html {
   font-size: 16px;
   padding: 5px;
   box-sizing: border-box;
+}
+
+a {
+  color: yellow;
+  text-decoration: none;
+
+  &:before {
+    content: "[";
+    color: orange;
+  }
+
+  &:after {
+    content: "]";
+    color: orange;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
 }
 
 .header {
@@ -61,29 +84,6 @@ body, html {
       li {
         margin-right: 10px;
         margin-top: 10px;
-
-        a {
-          color: yellow;
-          text-decoration: none;
-
-          &:before {
-            content: "[";
-            color: orange;
-          }
-
-          &:after {
-            content: "]";
-            color: orange;
-          }
-
-          &:hover {
-            opacity: 0.8;
-          }
-
-          &:active {
-            opacity: 0.5;
-          }
-        }
       }
     }
   }
@@ -95,4 +95,11 @@ body, html {
       opacity: 0.7;
     }
   }
+}
+
+footer {
+  text-align: center;
+  opacity: 0.6;
+  font-size: 0.9em;
+  margin: 10px;
 }

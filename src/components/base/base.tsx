@@ -12,20 +12,20 @@ export default function Base(props: Props): ReactElement {
       <title>Chiemsee-Computer-Club</title>
 
       <fieldset className={windowBox}>
-        <legend>CHCC</legend>
+        <legend>Chiemsee-Computer-Club</legend>
 
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Start</Link>
             </li>
 
             <li>
-              <Link to="/">Contact</Link>
+              <Link to="/contact">Kontakt</Link>
             </li>
 
             <li>
-              <Link to="/">Mitglieder</Link>
+              <Link to="/members">Mitglieder</Link>
             </li>
 
             <li>
@@ -34,9 +34,13 @@ export default function Base(props: Props): ReactElement {
           </ul>
         </nav>
 
-        <div className={content}>
+        <main className={content}>
           {props.children}
-        </div>
+        </main>
+
+        <footer>
+          Copyright © 2022
+        </footer>
       </fieldset>
     </main>
   );
