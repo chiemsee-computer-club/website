@@ -1,0 +1,98 @@
+@font-face {
+  font-family: IBM_BIOS;
+  src: url(../../fonts/Web437_IBM_BIOS.woff);
+}
+@font-face {
+  font-family: IBM_VGA_8x14;
+  src: url(../../fonts/Web437_IBM_VGA_8x14.woff);
+}
+
+:root {
+  --background: #242429;
+  --text-color: #ffffff;
+  --window-background: #2e2e31;
+  --border-color: #03f9ed81;
+}
+
+body, html {
+  margin: 0;
+  color: white;
+  width: 100%;
+  background-color: var(--background);
+  color: var(--text-color);
+  font-family: IBM_VGA_8x14, monospace;
+  font-size: 16px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.header {
+  margin: 0;
+  padding: 0;
+}
+
+.windowBox {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 5px solid var(--border-color);
+  border-style: double;
+  background-color: var(--window-background);
+  box-shadow: 20px 20px black;
+  padding: 0;
+
+  legend {
+    margin: 0 auto;
+    padding: 0 20px;
+    background: #ffffff;
+    color: #000000;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+      justify-content: center;
+      margin-top: 0;
+      box-sizing: content-box;
+      padding: 0 0 10px 0;
+      border-bottom: 5px double var(--border-color);
+
+      li {
+        margin-right: 10px;
+        margin-top: 10px;
+
+        a {
+          color: yellow;
+          text-decoration: none;
+
+          &:before {
+            content: "[";
+            color: orange;
+          }
+
+          &:after {
+            content: "]";
+            color: orange;
+          }
+
+          &:hover {
+            opacity: 0.8;
+          }
+
+          &:active {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    padding: 10px;
+
+    p {
+      opacity: 0.7;
+    }
+  }
+}
