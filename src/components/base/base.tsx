@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
-import { Link } from "gatsby";
 import { content, header, windowBox } from "./base.module.scss";
+import { Link, Trans } from "gatsby-plugin-react-i18next";
+
 
 interface Props {
   children: React.ReactNode;
@@ -17,19 +18,37 @@ export default function Base(props: Props): ReactElement {
         <nav>
           <ul>
             <li>
-              <Link to="/">Start</Link>
+              <Link to="/" language="en">
+                <Trans>EN</Trans>
+              </Link>
             </li>
 
             <li>
-              <Link to="/contact">Kontakt</Link>
+              <Link to="/" language="de">
+                <Trans>DE</Trans>
+              </Link>
+            </li>
+
+            {/* <li>
+              <Link to="/">
+                <Trans>Home</Trans>
+              </Link>
+            </li> */}
+
+            <li>
+              <Link to="/contact">
+                <Trans>Contact</Trans>
+              </Link>
             </li>
 
             <li>
-              <Link to="/members">Mitglieder</Link>
+              <Link to="/members">
+                <Trans>Members</Trans>
+              </Link>
             </li>
 
             <li>
-              <Link to="https://github.com/chiemsee-computer-club/">GitHub</Link>
+              <a href="https://github.com/chiemsee-computer-club/">GitHub</a>
             </li>
           </ul>
         </nav>

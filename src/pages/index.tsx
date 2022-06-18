@@ -1,20 +1,41 @@
+import { graphql, StaticQueryDocument } from "gatsby";
+import { Trans } from "gatsby-plugin-react-i18next";
 import * as React from "react";
 import Base from "../components/base/base";
 
 export default function IndexPage(): JSX.Element  {
   return (
     <Base>
-      <h1>Über uns</h1>
+      <h1>
+        <Trans>About us</Trans>
+      </h1>
 
       <section>
         <p>
-          Wir sind eine Gruppe aus Programmierern, die nichts besseres zu tun hatten, als einen
-          Verein zu gründen.
+          <Trans>
+            We are a group of programmers who had nothing better to do than to start a club.
+          </Trans>
           <br />
           <br />
-          Da wir uns alle im Umkreis des Chiemsees kennenlernten, kam der kreative Name "Chiemsee-Computer-Club" zustande.
+          <Trans>
+            Since we all got to know each other around the lake Chiemsee, we came up with the creative name "Chiemsee-Computer-Club".
+          </Trans>
         </p>
       </section>
     </Base>
   );
 }
+
+export const query: StaticQueryDocument = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
