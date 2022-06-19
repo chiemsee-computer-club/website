@@ -1,6 +1,6 @@
-import React, { ReactElement } from "react";
-import { content, header, windowBox } from "./base.module.scss";
-import { Link, Trans } from "gatsby-plugin-react-i18next";
+import { Link, Trans, useI18next } from "gatsby-plugin-react-i18next";
+import React, { ReactElement, useState } from "react";
+import { content, header, languageSelection, windowBox } from "./base.module.scss";
 
 
 interface Props {
@@ -8,6 +8,14 @@ interface Props {
 }
 
 export default function Base(props: Props): ReactElement {
+  const { languages, originalPath, language, changeLanguage } = useI18next();
+  const [currentLanguage, setCurrentLanguage] = useState(language);
+
+  const setLanguage = (newLanguage: string): void => {
+    setCurrentLanguage(newLanguage);
+    void changeLanguage(newLanguage, originalPath);
+  };
+
   return (
     <main className={header}>
       <title>Chiemsee-Computer-Club</title>
@@ -18,22 +26,10 @@ export default function Base(props: Props): ReactElement {
         <nav>
           <ul>
             <li>
-              <Link to="/" language="en">
-                <Trans>EN</Trans>
-              </Link>
-            </li>
-
-            <li>
-              <Link to="/" language="de">
-                <Trans>DE</Trans>
-              </Link>
-            </li>
-
-            {/* <li>
               <Link to="/">
                 <Trans>Home</Trans>
               </Link>
-            </li> */}
+            </li>
 
             <li>
               <Link to="/contact">
@@ -51,6 +47,16 @@ export default function Base(props: Props): ReactElement {
               <a href="https://github.com/chiemsee-computer-club/">GitHub</a>
             </li>
           </ul>
+
+          <select className={languageSelection}
+                    value={currentLanguage}
+                    onChange={(event: React.ChangeEvent<HTMLSelectElement>): void => setLanguage(event.target.value)}>
+              {languages.map((lng) => (
+                <option key={lng}>
+                  {lng}
+                </option>
+              ))}
+            </select>
         </nav>
 
         <main className={content}>

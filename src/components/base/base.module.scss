@@ -8,6 +8,8 @@
   --text-color: #ffffff;
   --window-background: #2e2e31;
   --border-color: #03f9ed81;
+  --link-inner-color: yellow;
+  --link-bracket-color: orange;
 }
 
 body, html {
@@ -23,17 +25,18 @@ body, html {
 }
 
 a {
-  color: yellow;
+  font-size: 1.1em;
+  color: var(--link-inner-color);
   text-decoration: none;
 
   &:before {
     content: "[";
-    color: orange;
+    color: var(--link-bracket-color);
   }
 
   &:after {
     content: "]";
-    color: orange;
+    color: var(--link-bracket-color);
   }
 
   &:hover {
@@ -67,20 +70,42 @@ a {
   }
 
   nav {
+    position: relative;
+    padding: 0 0 10px 0;
+    border-bottom: 5px double var(--border-color);
+
     ul {
       display: flex;
       flex-wrap: wrap;
       list-style-type: none;
       justify-content: center;
-      margin-top: 0;
+      align-items: center;
+      margin: 0;
+      padding: 0;
       box-sizing: content-box;
-      padding: 0 0 10px 0;
-      border-bottom: 5px double var(--border-color);
 
       li {
         margin-right: 10px;
         margin-top: 10px;
       }
+    }
+
+    .languageSelection {
+      margin: 0 auto;
+      display: block;
+      margin-top: 10px;
+      padding: 0;
+      height: 25px;
+      width: 50px;
+      border-radius: 5px;
+      // display: block;
+      // border: 2px double var(--link-bracket-color);
+      // border-radius: 5px;
+      // background: #878787;
+      // color: var(--text-color);
+      // position: absolute;
+      // top: 0;
+      // right: 5px;
     }
   }
 
